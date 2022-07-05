@@ -72,16 +72,7 @@ public class JwtServiceImpl implements JwtService {
         try {
             claims = Jwts.parser().setSigningKey(SALT.getBytes("UTF-8")).parseClaimsJws(jwt);
         } catch (Exception e) {
-//			if (logger.isInfoEnabled()) {
-//				e.printStackTrace();
-//			} else {
             logger.error(e.getMessage());
-//			}
-//            throw new UnAuthorizedException();
-//			개발환경
-//			Map<String,Object> testMap = new HashMap<>();
-//			testMap.put("userid", userid);
-//			return testMap;
         }
         Map<String, Object> value = claims.getBody();
         logger.info("value : {}", value);
