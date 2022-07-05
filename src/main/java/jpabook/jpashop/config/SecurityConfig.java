@@ -1,8 +1,10 @@
 package jpabook.jpashop.config;
 
 import jpabook.jpashop.api.service.UserService;
+import jpabook.jpashop.common.auth.CustomAuthenticationFilter;
 import jpabook.jpashop.common.auth.JwtAuthenticationFilter;
 import jpabook.jpashop.common.auth.TwimUserDetailService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +17,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 /**
  * 인증(authentication) 와 인가(authorization) 처리를 위한 스프링 시큐리티 설정 정의.
@@ -22,12 +26,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    @Autowired
-    private TwimUserDetailService twimUserDetailService;
 
-    @Autowired
-    private UserService userService;
+    private final TwimUserDetailService twimUserDetailService;
+
+    private final UserService userService;
+
+    private final AuthenticationSuccessHandler authenticationSuccessHandler;
+    // 인증 실패 핸들러
+    private final AuthenticationFailureHandler authenticationFailureHandler;
 
     // Password 인코딩 방식에 BCrypt 암호화 방식 사용
     @Bean
@@ -65,5 +73,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/order/order-list").authenticated()
                 .anyRequest().permitAll()
                 .and().cors();
+    }
+
+    @Bean
+    public CustomAuthenticationFilter authenticationFilter() throws Exception {
+        CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManager());
+        // 필터 URL 설정
+        customAuthenticationFilter.setFilterProcessesUrl("/api/v1/order");
+        customAuthenticationFilter.setFilterProcessesUrl("/api/v1/order/order-list");
+        // 인증 성공 핸들러
+        customAuthenticationFilter.setAuthenticationSuccessHandler(authenticationSuccessHandler);
+        // 인증 실패 핸들러
+        customAuthenticationFilter.setAuthenticationFailureHandler(authenticationFailureHandler);
+        // BeanFactory에 의해 모든 property가 설정되고 난 뒤 실행
+        customAuthenticationFilter.afterPropertiesSet();
+        return customAuthenticationFilter;
     }
 }

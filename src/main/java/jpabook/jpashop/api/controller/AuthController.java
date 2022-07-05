@@ -36,14 +36,10 @@ public class AuthController {
     private static final String SUCCESS = "success";
     private static final String FAIL = "fail";
 
-//    @Autowired
-//    UserService userService;
-
     private final UserService userService;
 
 
-    @Autowired
-    PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @PostMapping("/login")
     @ApiOperation(value = "로그인", notes = "<strong>아이디와 패스워드</strong>를 통해 로그인 한다.")

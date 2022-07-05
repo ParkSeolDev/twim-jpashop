@@ -20,10 +20,10 @@ import java.util.List;
 @Api(value = "아이템 API", tags = {"Item"})
 @RestController
 @RequestMapping("/api/v1/item")
+@RequiredArgsConstructor
 public class ItemController {
 
-    @Autowired
-    private ItemService itemService;
+    private final ItemService itemService;
 
     @PostMapping("/new")
     public void create(@RequestBody BookForm form) {

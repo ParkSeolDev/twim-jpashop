@@ -27,21 +27,15 @@ import java.util.Map;
 @Api(value = "주문 API", tags = {"Order"})
 @RestController
 @RequestMapping("/api/v1/order")
+@RequiredArgsConstructor
 public class OrderController {
 
     public static final Logger logger = LoggerFactory.getLogger(OrderController.class);
     private static final String SUCCESS = "success";
     private static final String FAIL = "fail";
 
-    @Autowired
-    private OrderService orderService;
-    @Autowired
-    private UserService userService;
-    @Autowired
-    private ItemService itemService;
-
-    @Autowired
-    private JwtService jwtService;
+    private final OrderService orderService;
+    private final JwtService jwtService;
 
     @PostMapping()
     public ResponseEntity<String> order(@RequestParam("userId") String userId,
