@@ -41,39 +41,43 @@ public class OrderController {
     public ResponseEntity<String> order(@RequestParam("userId") String userId,
                                         @RequestParam("itemId") Long itemId,
                                         @RequestParam("count") int count, HttpServletRequest request) {
-        HttpStatus status = HttpStatus.ACCEPTED;
-        if (jwtService.isUsable(request.getHeader("access-token"))) {
-            logger.info("사용 가능한 토큰!!!");
-            try {
-                orderService.order(userId, itemId, count);
-                status = HttpStatus.ACCEPTED;
-            } catch (Exception e) {
-                logger.error("정보조회 실패 : {}", e);
-                status = HttpStatus.INTERNAL_SERVER_ERROR;
-                return new ResponseEntity<String>(FAIL, status);
-            }
-        }
-
-        return new ResponseEntity<String>(SUCCESS, status);
+//        HttpStatus status = HttpStatus.ACCEPTED;
+//        if (jwtService.isUsable(request.getHeader("access-token"))) {
+//            logger.info("사용 가능한 토큰!!!");
+//            try {
+//                orderService.order(userId, itemId, count);
+//                status = HttpStatus.ACCEPTED;
+//            } catch (Exception e) {
+//                logger.error("정보조회 실패 : {}", e);
+//                status = HttpStatus.INTERNAL_SERVER_ERROR;
+//                return new ResponseEntity<String>(FAIL, status);
+//            }
+//        }
+//
+//        return new ResponseEntity<String>(SUCCESS, status);
+        orderService.order(userId, itemId, count);
+        return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
     @PostMapping("order-list")
     public ResponseEntity<List<Order>> orderList(@RequestBody OrderSearch orderSearch, HttpServletRequest request) {
 
-        HttpStatus status = HttpStatus.ACCEPTED;
-        if (jwtService.isUsable(request.getHeader("access-token"))) {
-            logger.info("사용 가능한 토큰!!!");
-            try {
-                List<Order> orders = orderService.findOrders(orderSearch);
-                status = HttpStatus.ACCEPTED;
-                return new ResponseEntity<>(orders, status);
-            } catch (Exception e) {
-                logger.error("정보조회 실패 : {}", e);
-                status = HttpStatus.INTERNAL_SERVER_ERROR;
-                return new ResponseEntity<>(null, status);
-            }
-        }
-        return new ResponseEntity<>(null, status);
+//        HttpStatus status = HttpStatus.ACCEPTED;
+//        if (jwtService.isUsable(request.getHeader("access-token"))) {
+//            logger.info("사용 가능한 토큰!!!");
+//            try {
+//                List<Order> orders = orderService.findOrders(orderSearch);
+//                status = HttpStatus.ACCEPTED;
+//                return new ResponseEntity<>(orders, status);
+//            } catch (Exception e) {
+//                logger.error("정보조회 실패 : {}", e);
+//                status = HttpStatus.INTERNAL_SERVER_ERROR;
+//                return new ResponseEntity<>(null, status);
+//            }
+//        }
+//        return new ResponseEntity<>(null, status);
+        List<Order> orders = orderService.findOrders(orderSearch);
+        return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
     @PostMapping("/{orderId}/cancel")
