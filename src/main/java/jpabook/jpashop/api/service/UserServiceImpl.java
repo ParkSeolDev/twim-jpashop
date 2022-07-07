@@ -6,7 +6,9 @@ import jpabook.jpashop.api.request.UserUpdateReq;
 import jpabook.jpashop.common.util.SHA256;
 import jpabook.jpashop.db.entity.User;
 import jpabook.jpashop.db.repository.UserRepositorySupport;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+
+import org.hibernate.validator.internal.util.stereotypes.Lazy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +18,13 @@ import java.util.List;
  *	유저 관련 비즈니스 로직 처리를 위한 서비스 구현 정의.
  */
 @Service("userService")
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    @Autowired
+
     UserRepositorySupport userRepositorySupport;
 
-    @Autowired
+    @Lazy
     PasswordEncoder passwordEncoder;
 
     @Override

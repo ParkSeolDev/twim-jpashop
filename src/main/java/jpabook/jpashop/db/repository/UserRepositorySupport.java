@@ -1,10 +1,11 @@
 package jpabook.jpashop.db.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import jpabook.jpashop.db.entity.User;
 import lombok.RequiredArgsConstructor;
+
+import org.hibernate.validator.internal.util.stereotypes.Lazy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,7 +24,7 @@ public class UserRepositorySupport {
 
     private final EntityManager em;
 
-    @Autowired
+    @Lazy
     PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)

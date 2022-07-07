@@ -4,8 +4,9 @@ import jpabook.jpashop.api.service.UserService;
 import jpabook.jpashop.common.auth.CustomAuthenticationFilter;
 import jpabook.jpashop.common.auth.JwtAuthenticationFilter;
 import jpabook.jpashop.common.auth.TwimUserDetailService;
+import jpabook.jpashop.common.exception.handler.LoginFailureHandler;
+import jpabook.jpashop.common.exception.handler.LoginSuccessHandler;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -33,9 +34,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserService userService;
 
-    private final AuthenticationSuccessHandler authenticationSuccessHandler;
+    private final LoginSuccessHandler authenticationSuccessHandler;
     // 인증 실패 핸들러
-    private final AuthenticationFailureHandler authenticationFailureHandler;
+    private final LoginFailureHandler authenticationFailureHandler;
 
     // Password 인코딩 방식에 BCrypt 암호화 방식 사용
     @Bean
