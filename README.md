@@ -8,6 +8,7 @@
 - mysql @8.0.27
 - java 11
 - Intellij
+- VSCode
 - SpringBoot 2.4.5
 - Gradle
 
