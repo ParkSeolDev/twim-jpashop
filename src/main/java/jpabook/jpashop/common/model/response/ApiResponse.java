@@ -1,4 +1,4 @@
-package jpabook.jpashop.api.response;
+package jpabook.jpashop.common.model.response;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
