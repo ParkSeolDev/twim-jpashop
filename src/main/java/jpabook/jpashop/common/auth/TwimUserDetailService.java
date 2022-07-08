@@ -19,7 +19,7 @@ public class TwimUserDetailService implements UserDetailsService{
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.getUserByUserId(username);
+        User user = userService.getUserByUserName(username);
         if(user != null) {
             TwimUserDetails userDetails = new TwimUserDetails(user);
             return userDetails;
