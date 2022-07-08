@@ -2,10 +2,7 @@ package jpabook.jpashop.api.service;
 
 import jpabook.jpashop.db.entity.*;
 import jpabook.jpashop.db.entity.item.Item;
-import jpabook.jpashop.db.repository.ItemRepository;
-import jpabook.jpashop.db.repository.OrderRepository;
-import jpabook.jpashop.db.repository.OrderSearch;
-import jpabook.jpashop.db.repository.UserRepositorySupport;
+import jpabook.jpashop.db.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +18,7 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final UserRepositorySupport userRepositorySupport;
     private final ItemRepository itemRepository;
+    private final UserFindRepository userFindRepository;
 
     /**
      * 주문
@@ -29,7 +27,7 @@ public class OrderService {
     public Long order(String userId, Long itemId, int count) {
 
         //엔티티 조회
-        User user = userRepositorySupport.findUserByUserId(userId);
+        User user = userFindRepository.findUserByUserId(userId);
         Item item = itemRepository.findOne(itemId);
 
         //배송정보 생성

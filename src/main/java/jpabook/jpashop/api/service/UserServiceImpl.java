@@ -5,6 +5,7 @@ import jpabook.jpashop.api.request.UserRegisterPostReq;
 import jpabook.jpashop.api.request.UserUpdateReq;
 import jpabook.jpashop.common.util.SHA256;
 import jpabook.jpashop.db.entity.User;
+import jpabook.jpashop.db.repository.UserFindRepository;
 import jpabook.jpashop.db.repository.UserRepositorySupport;
 import lombok.RequiredArgsConstructor;
 
@@ -22,9 +23,10 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
-    UserRepositorySupport userRepositorySupport;
+    private final UserRepositorySupport userRepositorySupport;
 
-    PasswordEncoder passwordEncoder;
+    private final UserFindRepository userFindRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User createUser(UserRegisterPostReq userRegisterInfo) {
@@ -53,20 +55,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByUserId(String userId) {
         // 디비에 유저 정보 조회 (userId 를 통한 조회).
-        User user = userRepositorySupport.findUserByUserId(userId);
+        User user = userFindRepository.findUserByUserId(userId);
         return user;
     }
 
     @Override
     public User getUserByUserName(String userName) {
         // 디비에 유저 정보 조회 (userId 를 통한 조회).
-        User user = userRepositorySupport.findByUsername(userName);
+        User user = userFindRepository.findByUsername(userName);
         return user;
     }
 
     @Override
     public List<User> getAllUsers() {
-        return userRepositorySupport.findAll();
+        return userFindRepository.findAll();
     }
 
     @Override

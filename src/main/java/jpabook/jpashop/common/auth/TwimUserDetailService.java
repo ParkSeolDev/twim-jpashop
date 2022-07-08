@@ -2,6 +2,7 @@ package jpabook.jpashop.common.auth;
 
 import jpabook.jpashop.api.service.UserService;
 import jpabook.jpashop.db.entity.User;
+import jpabook.jpashop.db.repository.UserFindRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,11 +16,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class TwimUserDetailService implements UserDetailsService{
     @Autowired
-    UserService userService;
+    UserFindRepository userFindRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.getUserByUserName(username);
+        User user = userFindRepository.findByUsername(username);
         if(user != null) {
             TwimUserDetails userDetails = new TwimUserDetails(user);
             return userDetails;
