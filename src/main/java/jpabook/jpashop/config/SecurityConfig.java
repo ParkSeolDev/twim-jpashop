@@ -32,7 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final TwimUserDetailService twimUserDetailService;
 
     private final UserService userService;
-
     private final LoginSuccessHandler authenticationSuccessHandler;
     // 인증 실패 핸들러
     private final LoginFailureHandler authenticationFailureHandler;
