@@ -4,7 +4,7 @@ import jpabook.jpashop.db.entity.Address;
 import jpabook.jpashop.db.entity.Order;
 import jpabook.jpashop.db.entity.OrderItem;
 import jpabook.jpashop.db.entity.OrderStatus;
-import jpabook.jpashop.db.repository.OrderRepository;
+import jpabook.jpashop.db.repository.OrderRepositorySupport;
 import jpabook.jpashop.db.repository.order.query.OrderFlatDto;
 import jpabook.jpashop.db.repository.order.query.OrderItemQueryDto;
 import jpabook.jpashop.db.repository.order.query.OrderQueryDto;
@@ -44,7 +44,7 @@ import static java.util.stream.Collectors.*;
 @RequiredArgsConstructor
 public class OrderApiController {
 
-    private final OrderRepository orderRepository;
+    private final OrderRepositorySupport orderRepository;
     private final OrderQueryRepository orderQueryRepository;
 
     /**

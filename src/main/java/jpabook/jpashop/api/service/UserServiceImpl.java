@@ -5,6 +5,7 @@ import jpabook.jpashop.api.request.UserRegisterPostReq;
 import jpabook.jpashop.api.request.UserUpdateReq;
 import jpabook.jpashop.common.util.SHA256;
 import jpabook.jpashop.db.entity.User;
+import jpabook.jpashop.db.repository.UserRepository;
 import jpabook.jpashop.db.repository.UserRepositorySupport;
 import lombok.RequiredArgsConstructor;
 
@@ -22,6 +23,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
+    UserRepository userRepository;
     UserRepositorySupport userRepositorySupport;
 
     @Lazy
@@ -34,7 +36,7 @@ public class UserServiceImpl implements UserService {
         // 보안을 위해서 유저 패스워드 암호화 하여 디비에 저장.
         user.setPassword(passwordEncoder.encode(userRegisterInfo.getPassword()));
         user.setName(userRegisterInfo.getName());
-        userRepositorySupport.save(user);
+        userRepository.save(user);
         return user;
     }
 
@@ -47,27 +49,27 @@ public class UserServiceImpl implements UserService {
         SHA256 sha256 = new SHA256();
         user.setPassword(sha256.encrypt(userRegisterInfo.getPassword()));
         user.setName(userRegisterInfo.getName());
-        userRepositorySupport.save(user);
+        userRepository.save(user);
         return user;
     }
 
     @Override
     public User getUserByUserId(String userId) {
         // 디비에 유저 정보 조회 (userId 를 통한 조회).
-        User user = userRepositorySupport.findUserByUserId(userId);
+        User user = userRepository.findById(userId).get();
         return user;
     }
 
     @Override
     public User getUserByUserName(String userName) {
         // 디비에 유저 정보 조회 (userId 를 통한 조회).
-        User user = userRepositorySupport.findByUsername(userName);
+        User user = userRepository.findByUsername(userName);
         return user;
     }
 
     @Override
     public List<User> getAllUsers() {
-        return userRepositorySupport.findAll();
+        return userRepository.findAll();
     }
 
     @Override
@@ -77,12 +79,12 @@ public class UserServiceImpl implements UserService {
         // 보안을 위해서 유저 패스워드 암호화 하여 디비에 저장.
         user.setPassword(passwordEncoder.encode(userUpdateInfo.getPassword()));
         user.setName(userUpdateInfo.getName());
-        userRepositorySupport.updateUser(user);
+        userRepository.updateUser(user.getName(), user.getUserId());
     }
 
     @Override
     public void deleteByUserId(String userId){
-        userRepositorySupport.deleteByUserId(userId);
+        userRepository.deleteById(userId);
     }
 
     @Override

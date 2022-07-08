@@ -3,7 +3,7 @@ package jpabook.jpashop.api.controller;
 import jpabook.jpashop.db.entity.Address;
 import jpabook.jpashop.db.entity.Order;
 import jpabook.jpashop.db.entity.OrderStatus;
-import jpabook.jpashop.db.repository.OrderRepository;
+import jpabook.jpashop.db.repository.OrderRepositorySupport;
 import jpabook.jpashop.db.repository.OrderSearch;
 import jpabook.jpashop.db.repository.order.simplequery.OrderSimpleQueryDto;
 import jpabook.jpashop.db.repository.order.simplequery.OrderSimpleQueryRepository;
@@ -29,7 +29,7 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 public class OrderSimpleApiController {
 
-    private final OrderRepository orderRepository;
+    private final OrderRepositorySupport orderRepository;
     private final OrderSimpleQueryRepository orderSimpleQueryRepository; //의존관계 주입
 
     /**

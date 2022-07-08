@@ -4,11 +4,9 @@ import jpabook.jpashop.common.exception.NotEnoughStockException;
 import jpabook.jpashop.db.entity.Category;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.IdentityHashMap;
 import java.util.List;
 
 @Entity

@@ -6,7 +6,6 @@ import jpabook.jpashop.db.entity.User;
 import lombok.RequiredArgsConstructor;
 
 import org.hibernate.validator.internal.util.stereotypes.Lazy;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
