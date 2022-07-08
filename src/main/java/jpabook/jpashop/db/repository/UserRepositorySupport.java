@@ -22,7 +22,6 @@ import javax.persistence.Query;
 public class UserRepositorySupport {
 
     private final EntityManager em;
-    @Lazy
     private final PasswordEncoder passwordEncoder;
 
 
