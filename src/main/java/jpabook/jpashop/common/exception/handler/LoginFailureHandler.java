@@ -14,7 +14,6 @@ public class LoginFailureHandler implements AuthenticationFailureHandler {
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
             org.springframework.security.core.AuthenticationException exception) throws IOException, ServletException {
-        // TODO Auto-generated method stub
         
     }
 }

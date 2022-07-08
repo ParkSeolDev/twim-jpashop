@@ -24,7 +24,6 @@ public class UserServiceImpl implements UserService {
 
     UserRepositorySupport userRepositorySupport;
 
-    @Lazy
     PasswordEncoder passwordEncoder;
 
     @Override

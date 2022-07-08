@@ -24,7 +24,6 @@ public class UserRepositorySupport {
 
     private final EntityManager em;
 
-    @Lazy
     PasswordEncoder passwordEncoder;
 
     @Transactional(readOnly = true)
