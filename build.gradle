@@ -1,6 +1,6 @@
 buildscript{
 	ext {
-		springBootVer = '2.7.1'
+		springBootVer = '2.4.5'
 		querydslVer = '5.0.0'
 		querydslPluginVer = '1.0.10'
 		springDependencyMgmtVer = '1.0.11'
