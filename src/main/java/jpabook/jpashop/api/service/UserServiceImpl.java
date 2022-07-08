@@ -23,11 +23,10 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
-    UserRepository userRepository;
-    UserRepositorySupport userRepositorySupport;
+    private final UserRepository userRepository;
+    private final UserRepositorySupport userRepositorySupport;
 
-    @Lazy
-    PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public User createUser(UserRegisterPostReq userRegisterInfo) {
@@ -63,7 +62,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByUserName(String userName) {
         // 디비에 유저 정보 조회 (userId 를 통한 조회).
-        User user = userRepository.findByUsername(userName);
+        User user = userRepository.findByName(userName);
         return user;
     }
 

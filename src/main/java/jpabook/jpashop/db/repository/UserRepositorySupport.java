@@ -23,8 +23,8 @@ public class UserRepositorySupport {
 
     private final EntityManager em;
 
-    @Lazy
-    PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+
 
     @Transactional(readOnly = true)
     public User findUserByUserId(String userId) {

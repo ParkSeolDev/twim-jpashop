@@ -12,7 +12,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface UserRepository extends JpaRepository<User, String> {
     // 아래와 같이, Query Method 인터페이스(반환값, 메소드명, 인자) 정의를 하면 자동으로 Query Method 구현됨.
-   User findByUsername(String userName);
+   User findByName(String userName);
    
    @Query("update User u set u.name = :name, u.password = :password where u.userId = :userId")
    @Modifying(clearAutomatically = true)
