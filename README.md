@@ -6,10 +6,10 @@
 
 ## Development Environment
 - mysql @8.0.27
-- java 11
+- java 17
 - Intellij
 - VSCode
-- SpringBoot 2.4.5
+- SpringBoot 2.7.1
 - Gradle
 
 ## APIs
