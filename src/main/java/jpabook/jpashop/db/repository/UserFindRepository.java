@@ -10,10 +10,11 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class UserFindRepository {
     private final EntityManager em;
 
-    @Transactional(readOnly = true)
+    
     public User findUserByUserId(String userId) {
         User user = em.createQuery("select u from User u where userId = :userId", User.class)
                 .setParameter("userId", userId)
@@ -21,7 +22,6 @@ public class UserFindRepository {
         return user;
     }
 
-    @Transactional(readOnly = true)
     public User findByUsername(String userName) {
         User user = em.createQuery("select u from User u where name = :userName", User.class)
                 .setParameter("userName", userName)
@@ -29,7 +29,6 @@ public class UserFindRepository {
         return user;
     }
 
-    @Transactional(readOnly = true)
     public List<User> findAll() {
         return em.createQuery("select u from User u", User.class)
                 .getResultList();
