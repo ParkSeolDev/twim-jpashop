@@ -3,6 +3,7 @@ package jpabook.jpashop.db.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
 public class User{
 
     String name;
@@ -35,5 +37,17 @@ public class User{
     @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Order> orders = new ArrayList<>();
+
+    public User() {
+    }
+
+    public User(String name, String userId, String password, Address address, List<Order> orders){
+        this.name = name;
+        this.userId = userId;
+        this.password = password;
+        this.address = address;
+        this.orders = orders;
+
+    }
 
 }
