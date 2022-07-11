@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import jpabook.jpashop.db.entity.File;
 import org.apache.tomcat.util.bcel.Const;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import jpabook.jpashop.api.request.FileStore;
@@ -36,7 +38,13 @@ public class FileService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
-    private final String ContentType = "XLSX";  
+    private final String ContentType = "XLSX";
+
+    @Transactional
+    public FileDto createFile(FileDto fileDto) {
+        File file = fileRepository.save(fileMapper.toEntity(fileDto));
+        return fileMapper.toDto(file);
+    }
 
     public String uploadFile(MultipartFile file) throws IOException {
         UploadFile uploadFile = fileStore.storeFile(file);

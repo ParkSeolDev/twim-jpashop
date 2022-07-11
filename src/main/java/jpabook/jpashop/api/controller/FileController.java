@@ -4,6 +4,7 @@ import io.swagger.annotations.*;
 import jpabook.jpashop.api.service.FileService;
 import jpabook.jpashop.common.model.response.ApiUtils;
 import jpabook.jpashop.common.model.response.BasicResponse;
+import jpabook.jpashop.db.dto.FileDto;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
@@ -13,14 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @ApiResponses(value = { @ApiResponse(code = 401, message = "Unauthorized", response = BasicResponse.class),
@@ -36,6 +30,12 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileController {
 
     private final FileService fileService;
+
+    @ApiOperation(value = "파일 생성", notes = "파일을 생성함", response = ApiUtils.ApiResult.class)
+    @PostMapping("/contract")
+    public ApiUtils.ApiResult<?> createFile(@ApiParam(value = "파일 정보", required = true) @RequestBody FileDto fileDto) {
+        return ApiUtils.success(fileService.createFile(fileDto));
+    }
 
     @ApiOperation(value = "파일 업로드", notes = "서버에 파일을 업로드", response = ApiUtils.ApiResult.class)
     @PostMapping(value = "/upload/{fileId}")
