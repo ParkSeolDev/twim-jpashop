@@ -4,8 +4,6 @@ import java.util.List;
 
 import jpabook.jpashop.db.entity.User;
 import lombok.RequiredArgsConstructor;
-
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
