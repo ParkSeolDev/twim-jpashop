@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final TwimUserDetailService twimUserDetailService;
 
-//    private final UserService userService;
+    // private final UserService userService;
     private final LoginSuccessHandler authenticationSuccessHandler;
     // 인증 실패 핸들러
     private final LoginFailureHandler authenticationFailureHandler;
@@ -65,8 +65,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // 토큰 기반 인증이므로 세션 사용 하지않음
                 .and()
-//                .addFilter(new JwtAuthenticationFilter(authenticationManager(), userService)) //HTTP 요청에 JWT 토큰 인증 필터를 거치도록 필터를 추가
+                // .addFilter(new JwtAuthenticationFilter(authenticationManager(), userService)) //HTTP 요청에 JWT 토큰 인증 필터를 거치도록 필터를 추가
                 .authorizeRequests()
+                .antMatchers("/", "/api/v1/users/new_sha256", "/api/v1/users").permitAll()
                 .antMatchers("/api/v1/users/me").authenticated()       //인증이 필요한 URL과 필요하지 않은 URL에 대하여 설정
                 .antMatchers("/api/v1/order").authenticated()
                 .antMatchers("/api/v1/order/order-list").authenticated()
