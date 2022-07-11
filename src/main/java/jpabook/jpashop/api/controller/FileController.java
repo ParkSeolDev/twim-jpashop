@@ -39,12 +39,12 @@ public class FileController {
 
     @ApiOperation(value = "파일 업로드", notes = "서버에 파일을 업로드", response = ApiUtils.ApiResult.class)
     @PostMapping(value = "/upload/{fileId}")
-    public ApiUtils.ApiResult<?> uploadFile(@ApiParam(value = "계약서 파일", required = true) @RequestParam List<MultipartFile> files) throws IOException {
+    public ApiUtils.ApiResult<?> uploadFile(@ApiParam(value = "파일", required = true) @RequestParam(required = false, value = "arr") List<MultipartFile> files) throws IOException {
         MultipartFile file = files.get(0);
         return ApiUtils.success(fileService.uploadFile(file));
     }
 
-    @ApiOperation(value = "파일 다운로드", notes = "서버에 계약서 파일을 다운로드", response = ApiUtils.ApiResult.class)
+    @ApiOperation(value = "파일 다운로드", notes = "서버의 파일을 다운로드", response = ApiUtils.ApiResult.class)
     @GetMapping(value = "/download/{fileId}")
     public byte[] downloadFile(@ApiParam(value = "파일ID", required = true) @PathVariable long fileId) throws IOException {
         return fileService.downloadFile(fileId);
