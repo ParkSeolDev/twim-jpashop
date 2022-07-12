@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import jpabook.jpashop.db.entity.File;
-import org.apache.tomcat.util.bcel.Const;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,7 +14,6 @@ import jpabook.jpashop.api.request.UploadFile;
 import jpabook.jpashop.common.model.response.BasicResponse;
 import jpabook.jpashop.common.util.ExcelUtil;
 import jpabook.jpashop.db.dto.FileDTO;
-import jpabook.jpashop.db.dto.FileDto;
 import jpabook.jpashop.db.dto.UserDTO;
 import jpabook.jpashop.db.mapper.FileMapper;
 import jpabook.jpashop.db.mapper.UserMapper;
