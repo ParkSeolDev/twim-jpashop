@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @Builder
 @ApiModel(value = "파일", description = "파일의 상세 정보")
-public class FileDto {
+public class FileDTO {
     @ApiModelProperty(value = "파일의 PK")
     private long id;
 
@@ -21,10 +21,16 @@ public class FileDto {
     private String name;
     @ApiModelProperty(value = "생성된 일시", example = "2022-06-30T01:48:24.044+0000")
     private Date createdDate;
-    @ApiModelProperty(value = "업로드된 일시", example = "2022-04-02T02:48:24.044+0000")
-    private Date uploadedDate;
     // TODO: 절대경로를 보여주지 않고 파일명만 갖도록
     @ApiModelProperty(value = "파일의 경로", example = "C:/Users/TWIM/Desktop/Git/file/contract.pdf")
     private String filePath;
 
+    public FileDTO(){
+    }
+    FileDTO(long id, String name, Date createdDate, String filePath){
+        this.id = id;
+        this.name = name;
+        this.createdDate = createdDate;
+        this.filePath = filePath;
+    }
 }

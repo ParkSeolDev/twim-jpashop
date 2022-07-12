@@ -31,7 +31,6 @@ public class File {
 
     @CreatedDate
     private Date createdDate;
-    private Date uploadedDate;
 
     private String filePath;
 }

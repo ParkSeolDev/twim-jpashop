@@ -4,7 +4,7 @@ import io.swagger.annotations.*;
 import jpabook.jpashop.api.service.FileService;
 import jpabook.jpashop.common.model.response.ApiUtils;
 import jpabook.jpashop.common.model.response.BasicResponse;
-import jpabook.jpashop.db.dto.FileDto;
+import jpabook.jpashop.db.dto.FileDTO;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
@@ -32,8 +32,8 @@ public class FileController {
     private final FileService fileService;
 
     @ApiOperation(value = "파일 생성", notes = "파일을 생성함", response = ApiUtils.ApiResult.class)
-    @PostMapping("/contract")
-    public ApiUtils.ApiResult<?> createFile(@ApiParam(value = "파일 정보", required = true) @RequestBody FileDto fileDto) {
+    @PostMapping
+    public ApiUtils.ApiResult<?> createFile(@ApiParam(value = "파일 정보", required = true) @RequestBody FileDTO fileDto) {
         return ApiUtils.success(fileService.createFile(fileDto));
     }
 
@@ -45,7 +45,7 @@ public class FileController {
     }
 
     @ApiOperation(value = "파일 다운로드", notes = "서버의 파일을 다운로드", response = ApiUtils.ApiResult.class)
-    @GetMapping(value = "/download/{fileId}")
+    @GetMapping(value = "/download/{fileId}", produces = "application/png")
     public byte[] downloadFile(@ApiParam(value = "파일ID", required = true) @PathVariable long fileId) throws IOException {
         return fileService.downloadFile(fileId);
     }

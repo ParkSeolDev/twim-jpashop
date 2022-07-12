@@ -14,6 +14,7 @@ import jpabook.jpashop.api.request.FileStore;
 import jpabook.jpashop.api.request.UploadFile;
 import jpabook.jpashop.common.model.response.BasicResponse;
 import jpabook.jpashop.common.util.ExcelUtil;
+import jpabook.jpashop.db.dto.FileDTO;
 import jpabook.jpashop.db.dto.FileDto;
 import jpabook.jpashop.db.dto.UserDTO;
 import jpabook.jpashop.db.mapper.FileMapper;
@@ -41,14 +42,21 @@ public class FileService {
     private final String ContentType = "XLSX";
 
     @Transactional
-    public FileDto createFile(FileDto fileDto) {
+    public FileDTO createFile(FileDTO fileDto) {
         File file = fileRepository.save(fileMapper.toEntity(fileDto));
         return fileMapper.toDto(file);
     }
 
+    @Transactional
     public String uploadFile(MultipartFile file) throws IOException {
         UploadFile uploadFile = fileStore.storeFile(file);
         log.info("full path: {}", uploadFile.getFullPath());
+
+        FileDTO fileDto = new FileDTO();
+        fileDto.setName(uploadFile.getStoreFileName());
+        fileDto.setFilePath(uploadFile.getFullPath());
+        createFile(fileDto);
+
         return uploadFile.getFullPath();
     }
 
@@ -58,7 +66,7 @@ public class FileService {
         return file;
     }
 
-    public FileDto getFile(long fileId) {
+    public FileDTO getFile(long fileId) {
         return fileMapper.toDto(fileRepository.findById(fileId).get());
     }
 
