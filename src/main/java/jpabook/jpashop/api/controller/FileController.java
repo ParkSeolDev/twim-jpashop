@@ -57,7 +57,7 @@ public class FileController {
     }
 
     @ApiOperation(value = "엑셀 파일을 저장", notes = "확장자가 XLSX인 파일의 데이터를 DB에 저장", response = BasicResponse.class)
-    @RequestMapping(value = "/addExcel", method = RequestMethod.POST)
+    @PostMapping(value = "/addExcel")
     public ResponseEntity<? extends BasicResponse> addExcel(HttpServletRequest request,
 		HttpServletResponse response, MultipartFile file) throws Exception {
 
