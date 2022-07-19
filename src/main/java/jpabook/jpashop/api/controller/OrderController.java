@@ -85,4 +85,10 @@ public class OrderController {
         orderService.cancelOrder(orderId);
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
+
+    @GetMapping("all-orders")
+    public ResponseEntity<List<Order>> allOrders(){
+        List<Order> orders = orderService.findAllOrders();
+        return new ResponseEntity<>(orders, HttpStatus.OK);
+    }
 }
