@@ -151,7 +151,10 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
 	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
 
-
+	implementation ('io.socket:socket.io-client:2.1.0') {
+		// excluding org.json which is provided by Android
+		exclude group: 'org.json', module: 'json'
+	}
 }
 
 test {

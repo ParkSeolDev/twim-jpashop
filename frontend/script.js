@@ -23,16 +23,7 @@ let socketClient = io("127.0.0.1:9999",{
 });
 
 
-socketClient.onopen = function(e) {
-  alert("[open] 커넥션이 만들어졌습니다.");
-  alert("데이터를 서버에 전송해봅시다.");
-  socketClient.send("My name is Bora");
-  print("aaa")
-};
 
-socketClient.onmessage = function(event) {
-  alert(`[message] 서버로부터 전송받은 데이터: ${event.data}`);
-};
 
 // socketClient.connect('connect', (socket)=>{
 //   socket.on('disconnect', (reason)=>{ console.log(reason)});
@@ -47,6 +38,7 @@ socketClient.on('connection', function(data) {
   print("connected");
 });
 
+socketClient.volatile.emit("hello", "might or might not be received");
 
 
 document.querySelector('#resultBtn').onclick = function() {
@@ -57,6 +49,19 @@ document.querySelector('#resultBtn').onclick = function() {
     var map = data.mapData;
     socketClient.of('/api/v1/order/all-orders').emit("responseNewMap", { mapData: map })
   });
+
+
+  socketClient.onopen = function(e) {
+    alert("[open] 커넥션이 만들어졌습니다.");
+    alert("데이터를 서버에 전송해봅시다.");
+    socketClient.send("My name is Bora");
+    print("aaa")
+  };
+  
+  socketClient.onmessage = function(event) {
+    alert(`[message] 서버로부터 전송받은 데이터: ${event.data}`);
+  };
+
 };
 
 
