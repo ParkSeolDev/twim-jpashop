@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0d3b51d6-1440-41b1-8082-a283e77f71c5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/._wrapper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/._gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/._gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/QAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/QCategory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/QDelivery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/QOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/QOrderItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/QUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/item/QAlbum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/item/QBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/item/QItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/generated/jpabook/jpashop/db/entity/item/QMovie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/JpashopApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/controller/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/controller/FileController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/controller/ItemController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/controller/OrderController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/controller/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/request/BookForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/request/FileStore.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/request/UploadFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/request/UserLoginPostReq.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/request/UserRegisterPostReq.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/request/UserUpdateReq.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/response/UserLoginPostRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/response/UserRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/service/FileService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/service/ItemService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/service/JwtService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/service/JwtServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/service/OrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/api/service/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/auth/CustomAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/auth/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/auth/TwimUserDetailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/auth/TwimUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/exception/NotEnoughStockException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/exception/handler/BadRequestHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/exception/handler/LoginFailureHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/exception/handler/LoginSuccessHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/exception/handler/NotFoundHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/model/response/ApiResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/model/response/ApiResponseType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/model/response/ApiUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/model/response/BaseResponseBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/model/response/BasicResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/model/response/DataApiResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/model/response/ErrorCode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/model/response/ErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/util/AES256Util.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/util/ExcelUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/util/JwtTokenUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/util/RSAEncryptionUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/util/ResponseBodyWriteUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/common/util/SHA256.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/config/JpaConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/config/PasswordEncoderConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/config/SwaggerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/config/WebMvcConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/dto/FileDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/dto/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/Address.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/Delivery.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/DeliveryStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/File.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/Order.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/OrderItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/OrderStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/Twimkey.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/item/Album.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/item/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/item/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/entity/item/Movie.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/mapper/FileMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/mapper/TwimkeyMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/FileRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/ItemRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/ItemRepositorySupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/KeyRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/OrderRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/OrderRepositorySupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/OrderSearch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/UserFindRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpabook/jpashop/db/repository/UserRepositorySupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/jpabook/jpashop/JpashopApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="socket" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2C5qcrxJTDXltfuEFrMhots3Doh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/TWIM/Desktop/신입교육/4week/SocketCommunication_client/build.gradle"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d3b51d6-1440-41b1-8082-a283e77f71c5" name="Changes" comment="" />
+      <created>1658102876223</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1658102876223</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
