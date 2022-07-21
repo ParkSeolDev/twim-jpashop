@@ -1,7 +1,6 @@
 package jpabook.jpashop.db.dto;
 
 import java.util.Date;
-import java.util.List;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
