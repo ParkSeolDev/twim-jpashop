@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/api/v1/users/new_sha256", "/api/v1/users").permitAll()
                 .antMatchers("/api/v1/users/me").authenticated()       //인증이 필요한 URL과 필요하지 않은 URL에 대하여 설정
-                .antMatchers("/api/v1/order").authenticated()
+//                .antMatchers("/api/v1/order").authenticated()
                 .antMatchers("/api/v1/order/order-list").authenticated()
                 .anyRequest().permitAll()
                 .and().cors();

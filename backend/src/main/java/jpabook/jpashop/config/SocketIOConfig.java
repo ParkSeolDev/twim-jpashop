@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.PreDestroy;
+
 @Configuration
 public class SocketIOConfig {
 
@@ -14,6 +16,8 @@ public class SocketIOConfig {
 
     @Value("${socket.io.port}")
     private Integer port;
+
+    private SocketIOServer server;
 
     @Bean
     public SocketIOServer socketIOServer() {
@@ -25,5 +29,10 @@ public class SocketIOConfig {
         config.setHostname(host);
         config.setPort(port);
         return new SocketIOServer(config);
+    }
+
+    @PreDestroy
+    public void stopSocketIOServer() {
+        this.server.stop();
     }
 }

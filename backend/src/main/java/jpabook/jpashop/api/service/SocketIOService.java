@@ -58,7 +58,7 @@ public class SocketIOService {
 
     private void connectClient(SocketIOClient client) {
         String companyId = getParamsByClient(client);
-        if (companyId == null || companyId.isEmpty()) throw new RuntimeException("Company Id not found");
+        if (companyId == null || companyId.isEmpty()) throw new RuntimeException("Client Id not found");
 
         log.info("************ Client: " + companyId + " - " + getIpAddress(client) + " Connected ************");
 
@@ -81,7 +81,7 @@ public class SocketIOService {
     private String getParamsByClient(SocketIOClient client) {
         // Get the client url parameter (where userId is the unique identity)
         Map<String, List<String>> params = client.getHandshakeData().getUrlParams();
-        List<String> companyIdList = params.get("companyId");
+        List<String> companyIdList = params.get("clientId");
 
         if (!CollectionUtils.isEmpty(companyIdList)) {
             return companyIdList.get(0);
@@ -98,8 +98,8 @@ public class SocketIOService {
 
         socketIOServer.addEventListener(DATA_EVENT, String.class, (client, data, ackSender) -> {
             String clientIp = getIpAddress(client);
-            String companyId = getParamsByClient(client);
-            log.info(clientIp + " - " + companyId + " ************ Data Event Received -> Data: " + data + "*************");
+            String clientId = getParamsByClient(client);
+            log.info(clientIp + " - " + clientId + " ************ Data Event Received -> Data: " + data + "*************");
 
             //Return same data to client
             client.sendEvent(DATA_EVENT, "Data " + data);
