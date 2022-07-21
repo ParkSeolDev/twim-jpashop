@@ -26,19 +26,25 @@ public class ObjectThread extends Thread {
                 System.out.println("Client connect success!");
                 InputStream in = socket.getInputStream();
                 System.out.println(in);
-                DataInputStream dis = new DataInputStream(in);
-                String message = dis.readUTF();
 
-                OutputStream out = socket.getOutputStream();
-                DataOutputStream dos = new DataOutputStream(out);
-                dos.writeUTF(message + "(from Server!)");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                String line = reader.readLine();
+                System.out.println(line);
+//                DataInputStream dis = new DataInputStream(in);
+//                System.out.println(dis);
+                try {
+//                    String message = dis.readUTF();
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
 
-                User user = new User("111111111111111","1");
+
+//                User user = new User("111111111111111","1");
 
 //                OutputStream out = socket.getOutputStream();
-                ObjectOutputStream oos = new ObjectOutputStream(out);
-                oos.writeObject(user);
-                oos.flush();
+//                ObjectOutputStream oos = new ObjectOutputStream(out);
+//                oos.writeObject(user);
+//                oos.flush();
 //                oos.close();
 //                dis.close();
 //                out.close();

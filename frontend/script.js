@@ -1,3 +1,5 @@
+import {net} from net;
+
 var socket = null;
 
 const request = new XMLHttpRequest();
@@ -71,17 +73,32 @@ $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
     });
+    /*
     $("#connect").unbind().click(function () {
         connect();
         
           setInterval(receiveData, 3000)
         
     });
+    */
     $("#disconnect").unbind().click(function () {
         disconnect();
     });
     $("#send").unbind().click(function () {
         sendData();
+        
+    });
+});
+
+
+
+var net = require('net');
+
+net.connect({port: 9999, host: 'localhost'}, function(){
+    $("#connect").unbind().click(function () {
+        connect();
+        
+          setInterval(receiveData, 3000)
         
     });
 });
