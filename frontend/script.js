@@ -1,4 +1,4 @@
-import {net} from net;
+// import {net} from net;
 
 var socket = null;
 
@@ -73,14 +73,14 @@ $(function () {
     $("form").on('submit', function (e) {
         e.preventDefault();
     });
-    /*
+    
     $("#connect").unbind().click(function () {
         connect();
         
           setInterval(receiveData, 3000)
         
     });
-    */
+    
     $("#disconnect").unbind().click(function () {
         disconnect();
     });
@@ -92,13 +92,13 @@ $(function () {
 
 
 
-var net = require('net');
+// var net = require('net');
 
-net.connect({port: 9999, host: 'localhost'}, function(){
-    $("#connect").unbind().click(function () {
-        connect();
+// net.connect({port: 9999, host: 'localhost'}, function(){
+//     $("#connect").unbind().click(function () {
+//         connect();
         
-          setInterval(receiveData, 3000)
+//           setInterval(receiveData, 3000)
         
-    });
-});
+//     });
+// });

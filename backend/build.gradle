@@ -151,7 +151,6 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml
 	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '4.1.2'
 
-	implementation ('io.socket:socket.io-server:4.0.1')
 }
 
 test {
