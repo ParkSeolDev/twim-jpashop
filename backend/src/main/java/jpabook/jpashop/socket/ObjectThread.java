@@ -23,7 +23,7 @@ public class ObjectThread extends Thread {
         try {
             while (true) {
 
-                System.out.println("client connect success!");
+                System.out.println("Client connect success!");
                 InputStream in = socket.getInputStream();
                 System.out.println(in);
                 DataInputStream dis = new DataInputStream(in);
