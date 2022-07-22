@@ -13,6 +13,7 @@ public class DataMapper {
                 .id(data.getId())
                 .splitData(data.getSplitData())
                 .createdDate(data.getCreatedDate())
+                .isPrinted(data.isPrinted())
                 .build();
     }
 
@@ -21,6 +22,7 @@ public class DataMapper {
                 .id(dataDto.getId())
                 .splitData(dataDto.getSplitData())
                 .createdDate(dataDto.getCreatedDate())
+                .isPrinted(dataDto.isPrinted())
                 .build();
     }
 }

@@ -3,7 +3,9 @@ package jpabook.jpashop.db.repository;
 import jpabook.jpashop.db.entity.Data;
 import jpabook.jpashop.db.entity.item.Item;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.text.DateFormat;
@@ -19,15 +21,21 @@ import java.util.List;
 public class DataRepositorySupport {
     private final EntityManager em;
 
-    public List<Data> findText(LocalDateTime date){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss.S");
-        String formattedString = date.format(formatter);
+    public List<Data> findText(){
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss.S");
+//        String formattedString = date.format(formatter);
 //        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.S");
 //        String time = format.format(date);
 //        String time = date.toString().substring(0,21);
 
-        return em.createQuery("select d from data d where d.createdDate=:formattedString", Data.class)
-                .setParameter("createdDate",formattedString)
+        return em.createQuery("select d from Data d where d.isPrinted = 0", Data.class)
                 .getResultList();
+    }
+
+    @Transactional
+    @Modifying
+    public void updateIsPrinted(Data data){
+//        em.createQuery("update Data d set d.isPrinted = 1").executeUpdate();
+        em.merge(data);
     }
 }

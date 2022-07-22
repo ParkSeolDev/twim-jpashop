@@ -1,6 +1,7 @@
 package jpabook.jpashop.db.entity;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -24,5 +25,9 @@ public class Data {
 
     @CreatedDate
     private Date createdDate;
+
+    @Column(nullable = false)
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private boolean isPrinted;
 }
 

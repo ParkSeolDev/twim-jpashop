@@ -13,5 +13,6 @@ public class DataDTO {
     private long id;
     private String splitData;
     private Date createdDate;
+    private boolean isPrinted;
 
 }
