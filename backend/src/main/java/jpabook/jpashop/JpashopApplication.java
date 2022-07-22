@@ -19,14 +19,14 @@ public class JpashopApplication {
 
 		SpringApplication.run(JpashopApplication.class, args);
 
-		ServerSocket serSocket = new ServerSocket(9999);
-
-		while (true) {
-			System.out.println("대기중...");
-			Socket socket = serSocket.accept();
-
-			new ObjectThread(socket).start();
-		}
+//		ServerSocket serverSocket = new ServerSocket(9999);
+//
+//		while (true) {
+//			System.out.println("대기중...");
+//			Socket socket = serverSocket.accept();
+//
+//			new ObjectThread(socket).start();
+//		}
 
 /*
 		ServerSocket ss = null;
