@@ -16,14 +16,23 @@ function setConnected(connected) {
     $("#messages").html("");
 }
 
+// function connect() {
+//    var clientId = $("#clientId").val();
+//    socket = io('http://127.0.0.1:9999?clientId='+clientId);
+//     setConnected(true);
+//     socket.on("data_event", function(message){
+//         showMessage(message);
+//     });
+// }
+
 function connect() {
-   var clientId = $("#clientId").val();
-   socket = io('http://127.0.0.1:9999?clientId='+clientId);
-    setConnected(true);
-    socket.on("data_event", function(message){
-        showMessage(message);
-    });
-}
+    socket = io('http://127.0.0.1:9999');
+     setConnected(true);
+     socket.on("data_event", function(message){
+         showMessage(message);
+     });
+ }
+
 
 function disconnect() {
     socket.emit("disconnect_event", "User Disconnect Request");

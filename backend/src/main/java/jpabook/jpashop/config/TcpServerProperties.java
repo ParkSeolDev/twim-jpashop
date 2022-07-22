@@ -5,13 +5,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "jpabook.jpashop.tcp-server")
+@ConfigurationProperties(prefix = "passbook.pawnshop.tcp-server")
 public class TcpServerProperties {
 
-//    @Value("${tcp.server.port}")
+//    @Value("${.port}")
     private int port;
 
-    private boolean autoStart = true;
+//    @Value("${.auto-start}")
+    private boolean autoStart;
 
     public int getPort() {
         return port;

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties(TcpServerProperties.class)
-@ConditionalOnProperty(prefix = "jpabook.jpahop.tcp-server", name = {"port", "autoStart"})
+@ConditionalOnProperty(prefix = "passbook.pawnshop.tcp-server", name = {"port", "autoStart"})
 public class TcpServerAutoConfiguration {
 
     @Bean
