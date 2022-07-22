@@ -32,11 +32,11 @@ public class EchoController {
 
     public void fixSplitData(){
         LocalDateTime now = LocalDateTime.now();
-        List<DataDTO> list = dataService.getSplitData(now);
+//        List<DataDTO> list = dataService.getSplitData(now);
         String text = "";
-        for (DataDTO data: list) {
-            text = text + data.getSplitData();
-        }
+//        for (DataDTO data: list) {
+//            text = text + data.getSplitData();
+//        }
         System.out.println(text);
     }
 
