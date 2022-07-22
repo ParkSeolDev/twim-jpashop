@@ -51,7 +51,7 @@ public class TcpConnection implements Connection {
     public void start() {
         new Thread(() -> {
             while (true) {
-                byte buf[] = new byte[64 * 1024];
+                byte buf[] = new byte[20];
                 try {
                     int count = inputStream.read(buf);
                     if (count > 0) {
