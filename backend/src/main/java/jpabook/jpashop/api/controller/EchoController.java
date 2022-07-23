@@ -7,14 +7,16 @@ import jpabook.jpashop.socket.Connection;
 import lombok.RequiredArgsConstructor;
 import java.util.List;
 
+//0033A99520000000000000000{0:0428,1:1}
 
 @TcpController
 @RequiredArgsConstructor
 public class EchoController {
     private final DataService dataService;
     private final int numBit = 4;
+    private final Double bufferSize = 20.0;
     private int count = 10000;
-    private Double skip = 1.0 + Math.ceil((count - (20.0 - numBit)) / 20.0);
+    private Double skip = 1.0 + Math.ceil((count - (bufferSize - numBit)) / bufferSize);
     private StringBuilder text = new StringBuilder();
 
     public void receiveData(Connection connection, byte[] data) {
@@ -25,7 +27,7 @@ public class EchoController {
         if (count == 10000) {
             count = Integer.parseInt(s.substring(0, numBit));
 //            skip = 1.0 + Math.floor((count - numBit) / 20.0);
-            skip = 1.0 + Math.ceil((count - (20.0 - numBit)) / 20.0);
+            skip = 1.0 + Math.ceil((count - (bufferSize - numBit)) / bufferSize);
             String str = s.substring(numBit);
             DataDTO data1 = new DataDTO();
             data1.setSplitData(str);
@@ -44,7 +46,7 @@ public class EchoController {
             System.out.println(text.toString());
             text = new StringBuilder();
             count = 10000;
-            skip = 1.0 + Math.ceil((count - (20.0 - numBit)) / 20.0);
+            skip = 1.0 + Math.ceil((count - (bufferSize - numBit)) / bufferSize);
             dataService.setIsPrinted();
         }
     }
