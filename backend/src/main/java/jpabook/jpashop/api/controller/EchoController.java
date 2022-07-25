@@ -25,7 +25,7 @@ public class EchoController {
 
         if (count == 10000) {
             count = Integer.parseInt(s.substring(0, numByte));
-//            skip = 1.0 + Math.floor((count - numBit) / 20.0);
+//            skip = 1.0 + Math.floor((count - numByte) / bufferSize);
             skip = 1.0 + Math.ceil((count - (bufferSize - numByte)) / bufferSize);
             String str = s.substring(numByte);
             DataDTO data1 = new DataDTO();
