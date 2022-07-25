@@ -1,9 +1,7 @@
 package jpabook.jpashop.db.mapper;
 
 import jpabook.jpashop.db.dto.DataDTO;
-import jpabook.jpashop.db.dto.FileDTO;
 import jpabook.jpashop.db.entity.Data;
-import jpabook.jpashop.db.entity.File;
 import org.springframework.stereotype.Component;
 
 @Component
