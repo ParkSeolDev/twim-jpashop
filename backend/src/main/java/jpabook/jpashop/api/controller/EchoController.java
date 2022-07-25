@@ -28,15 +28,17 @@ public class EchoController {
 //            skip = 1.0 + Math.floor((count - numByte) / bufferSize);
             skip = 1.0 + Math.ceil((count - (bufferSize - numByte)) / bufferSize);
             String str = s.substring(numByte);
-            DataDTO data1 = new DataDTO();
-            data1.setSplitData(str);
-            dataService.createData(data1);
-            text.append(data1.getSplitData());
+            // DataDTO data1 = new DataDTO();
+            // data1.setSplitData(str);
+            // dataService.createData(data1);
+            // text.append(data1.getSplitData());
+            text.append(str);
         } else {
-            DataDTO data1 = new DataDTO();
-            data1.setSplitData(s);
-            dataService.createData(data1);
-            text.append(data1.getSplitData());
+            // DataDTO data1 = new DataDTO();
+            // data1.setSplitData(s);
+            // dataService.createData(data1);
+            // text.append(data1.getSplitData());
+            text.append(s);
         }
 //        fixSplitData();
         skip--;
@@ -46,7 +48,7 @@ public class EchoController {
             text = new StringBuilder();
             count = 10000;
             skip = 1.0 + Math.ceil((count - (bufferSize - numByte)) / bufferSize);
-            dataService.setIsPrinted();
+            // dataService.setIsPrinted();
         }
     }
 
