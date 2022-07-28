@@ -39,7 +39,7 @@ public class FileController {
 
     @ApiOperation(value = "파일 업로드", notes = "서버에 파일을 업로드", response = ApiUtils.ApiResult.class)
     @PostMapping(value = "/upload/{fileId}")
-    public ApiUtils.ApiResult<?> uploadFile(@ApiParam(value = "파일", required = true) @RequestParam(required = false, value = "files") List<MultipartFile> files) throws IOException {
+    public ApiUtils.ApiResult<?> uploadFile(@ApiParam(value = "파일", required = true) @ModelAttribute(value = "files") List<MultipartFile> files) throws IOException {
         MultipartFile file = files.get(0);
         return ApiUtils.success(fileService.uploadFile(file));
     }
