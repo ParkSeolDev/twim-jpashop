@@ -4,6 +4,7 @@ package jpabook.jpashop.api.service;
 import jpabook.jpashop.api.request.UserRegisterPostReq;
 import jpabook.jpashop.api.request.UserUpdateReq;
 import jpabook.jpashop.common.util.SHA256;
+import jpabook.jpashop.db.entity.Address;
 import jpabook.jpashop.db.entity.User;
 import jpabook.jpashop.db.repository.UserRepository;
 import jpabook.jpashop.db.repository.UserRepositorySupport;
@@ -35,6 +36,8 @@ public class UserServiceImpl implements UserService {
         // 보안을 위해서 유저 패스워드 암호화 하여 디비에 저장.
         user.setPassword(passwordEncoder.encode(userRegisterInfo.getPassword()));
         user.setName(userRegisterInfo.getName());
+        Address address = new Address(userRegisterInfo.getCity(), userRegisterInfo.getStreet(), userRegisterInfo.getZipcode());
+        user.setAddress(address);
         userRepository.save(user);
         return user;
     }
