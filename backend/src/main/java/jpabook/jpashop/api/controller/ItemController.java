@@ -38,10 +38,16 @@ public class ItemController {
         itemService.saveItem(book);
     }
 
-    @GetMapping()
+    @GetMapping("/item-list")
     public ResponseEntity<List<Item>> itemList() {
         List<Item> items = itemService.findItems();
         return new ResponseEntity<>(items, HttpStatus.OK);
+    }
+
+    @GetMapping()
+    public ResponseEntity<Item> findItem(@RequestParam Long id) {
+        Item item = itemService.findOne(id);
+        return new ResponseEntity<>(item, HttpStatus.OK);
     }
 
     @GetMapping("/{itemId}")
