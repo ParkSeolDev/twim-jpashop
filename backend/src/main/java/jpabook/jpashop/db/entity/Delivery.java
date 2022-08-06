@@ -9,7 +9,7 @@ import javax.persistence.*;
 import static javax.persistence.FetchType.*;
 
 @Entity
-@Getter @Setter
+@Getter
 public class Delivery {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

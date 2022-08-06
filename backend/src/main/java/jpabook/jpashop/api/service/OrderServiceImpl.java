@@ -1,5 +1,6 @@
 package jpabook.jpashop.api.service;
 
+import jpabook.jpashop.api.exception.ItemNotFoundException;
 import jpabook.jpashop.api.exception.UserNotFoundException;
 import jpabook.jpashop.db.entity.*;
 import jpabook.jpashop.db.entity.item.Item;
@@ -33,7 +34,8 @@ public class OrderServiceImpl implements OrderService {
         //엔티티 조회
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new UserNotFoundException(userId));
-        Item item = itemRepository.findById(itemId).get();
+        Item item = itemRepository.findById(itemId)
+                .orElseThrow(() -> new ItemNotFoundException(itemId));
 
         //배송정보 생성
         Delivery delivery = Delivery.create(user.getAddress(), DeliveryStatus.READY);

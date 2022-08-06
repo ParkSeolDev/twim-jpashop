@@ -1,5 +1,6 @@
 package jpabook.jpashop.api.service;
 
+import jpabook.jpashop.api.exception.ItemNotFoundException;
 import jpabook.jpashop.api.request.BookForm;
 import jpabook.jpashop.db.entity.item.Item;
 import jpabook.jpashop.db.repository.ItemRepository;
@@ -23,10 +24,8 @@ public class ItemService {
 
     @Transactional
     public void updateItem(Long itemId, String name, int price, int stockQuantity) {
-        Item item = itemRepository.findById(itemId).get();
-        item.setName(name);
-        item.setPrice(price);
-        item.setStockQuantity(stockQuantity);
+        Item item = itemRepository.findById(itemId).orElseThrow(() -> new ItemNotFoundException(itemId));
+        item = Item.create(name, price, stockQuantity);
     }
 
     public List<Item> findItems() {
