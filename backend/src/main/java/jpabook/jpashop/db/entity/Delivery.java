@@ -24,5 +24,15 @@ public class Delivery {
     private Address address;
 
     @Enumerated(EnumType.STRING)
-    private DeliveryStatus status; //READY, COMP
+    private DeliveryStatus deliveryStatus; //READY, COMP
+
+    public Delivery(Address address, DeliveryStatus deliveryStatus) {
+        this.address = address;
+        this.deliveryStatus = deliveryStatus;
+    }
+
+    public static Delivery create(Address address, DeliveryStatus deliveryStatus) {
+        return new Delivery(address, deliveryStatus);
+    }
+
 }

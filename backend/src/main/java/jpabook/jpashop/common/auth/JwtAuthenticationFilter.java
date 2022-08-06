@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jpabook.jpashop.api.service.UserService;
-import jpabook.jpashop.common.util.JwtTokenUtil;
-import jpabook.jpashop.common.util.ResponseBodyWriteUtil;
+import jpabook.jpashop.util.JwtTokenUtil;
+import jpabook.jpashop.util.ResponseBodyWriteUtil;
 import jpabook.jpashop.db.entity.User;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

@@ -3,7 +3,7 @@ package jpabook.jpashop.api.service;
 
 import jpabook.jpashop.api.request.UserRegisterPostReq;
 import jpabook.jpashop.api.request.UserUpdateReq;
-import jpabook.jpashop.common.util.SHA256;
+import jpabook.jpashop.util.SHA256;
 import jpabook.jpashop.db.entity.Address;
 import jpabook.jpashop.db.entity.User;
 import jpabook.jpashop.db.repository.UserRepository;

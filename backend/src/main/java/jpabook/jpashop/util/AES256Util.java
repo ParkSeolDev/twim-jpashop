@@ -1,4 +1,4 @@
-package jpabook.jpashop.common.util;
+package jpabook.jpashop.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

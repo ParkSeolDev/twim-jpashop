@@ -1,6 +1,6 @@
 package jpabook.jpashop.db.entity.item;
 
-import jpabook.jpashop.common.exception.NotEnoughStockException;
+import jpabook.jpashop.api.exception.NotEnoughStockException;
 import jpabook.jpashop.db.entity.Category;
 import lombok.Getter;
 import lombok.Setter;

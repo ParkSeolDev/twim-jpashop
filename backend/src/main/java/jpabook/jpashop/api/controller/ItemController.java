@@ -25,7 +25,7 @@ public class ItemController {
 
     private final ItemService itemService;
 
-    @PostMapping("/new")
+    @PostMapping
     public void create(@RequestBody BookForm form) {
 
         Book book = new Book();
@@ -50,12 +50,13 @@ public class ItemController {
         return new ResponseEntity<>(item, HttpStatus.OK);
     }
 
+    // 아이템 폼을 수정하겠다
     @GetMapping("/{itemId}")
     public ResponseEntity<BookForm> updateItemForm(@PathVariable("itemId") Long itemId) {
         Book item = (Book) itemService.findOne(itemId);
 
         BookForm form = new BookForm();
-//        form.setId(item.getId());
+        form.setId(item.getId());
         form.setName(item.getName());
         form.setPrice(item.getPrice());
         form.setStockQuantity(item.getStockQuantity());
@@ -65,11 +66,18 @@ public class ItemController {
         return ResponseEntity.status(200).body(BookForm.of(form));
     }
 
-    @PostMapping("/{itemId}/edit")
+
+    //request header method
+    /*
+     * POST : 생성
+     * GET : 조회
+     * PUT : 수정
+     * DELETE : 삭제
+     */
+    @PutMapping("/{itemId}")
     public ResponseEntity<String> updateItem(@PathVariable Long itemId, @RequestBody BookForm form) {
-
         itemService.updateItem(itemId, form.getName(), form.getPrice(), form.getStockQuantity());
-
-        return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+        //return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+        return ResponseEntity.ok("SUCCESS");
     }
 }

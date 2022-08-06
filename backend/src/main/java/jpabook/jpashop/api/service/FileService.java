@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import jpabook.jpashop.api.request.FileStore;
 import jpabook.jpashop.api.request.UploadFile;
 import jpabook.jpashop.common.model.response.BasicResponse;
-import jpabook.jpashop.common.util.ExcelUtil;
+import jpabook.jpashop.util.ExcelUtil;
 import jpabook.jpashop.db.dto.FileDTO;
 import jpabook.jpashop.db.dto.UserDTO;
 import jpabook.jpashop.db.mapper.FileMapper;
