@@ -1,7 +1,6 @@
 package jpabook.jpashop.api.service;
 
-import jpabook.jpashop.api.exception.ItemNotFoundException;
-import jpabook.jpashop.api.request.BookForm;
+import jpabook.jpashop.exception.ItemNotFoundException;
 import jpabook.jpashop.db.entity.item.Item;
 import jpabook.jpashop.db.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;

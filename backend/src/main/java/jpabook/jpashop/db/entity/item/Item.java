@@ -1,6 +1,6 @@
 package jpabook.jpashop.db.entity.item;
 
-import jpabook.jpashop.api.exception.NotEnoughStockException;
+import jpabook.jpashop.exception.NotEnoughStockException;
 import jpabook.jpashop.db.entity.Category;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "dtype")
-@Getter
+@Getter @Setter
 public class Item {
 
     @Id
@@ -26,6 +26,10 @@ public class Item {
 
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
+
+    public Item() {
+
+    }
 
     //==비즈니스 로직==//
     /**

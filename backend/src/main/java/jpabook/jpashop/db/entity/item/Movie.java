@@ -14,4 +14,11 @@ public class Movie extends Item {
 
     private String director;
     private String actor;
+
+    public Movie(){
+
+    }
+    public Movie(String name, int price, int stockQuantity) {
+        super(name, price, stockQuantity);
+    }
 }

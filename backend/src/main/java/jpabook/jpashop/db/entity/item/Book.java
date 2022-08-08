@@ -13,4 +13,11 @@ import javax.persistence.Entity;
 public class Book extends Item {
     private  String isbn;
     private String author;
+
+    public Book(){
+        super();
+    }
+    public Book(String name, int price, int stockQuantity) {
+        super(name, price, stockQuantity);
+    }
 }

@@ -1,7 +1,7 @@
 package jpabook.jpashop.api.service;
 
-import jpabook.jpashop.api.exception.ItemNotFoundException;
-import jpabook.jpashop.api.exception.UserNotFoundException;
+import jpabook.jpashop.exception.ItemNotFoundException;
+import jpabook.jpashop.exception.UserNotFoundException;
 import jpabook.jpashop.db.entity.*;
 import jpabook.jpashop.db.entity.item.Item;
 import jpabook.jpashop.db.repository.ItemRepository;
@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
