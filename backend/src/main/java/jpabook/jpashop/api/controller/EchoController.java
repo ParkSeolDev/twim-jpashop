@@ -1,6 +1,12 @@
 package jpabook.jpashop.api.controller;
+import jpabook.jpashop.api.service.OrderService;
+import jpabook.jpashop.api.service.UserService;
+import jpabook.jpashop.db.entity.Order;
+import jpabook.jpashop.db.entity.User;
 import jpabook.jpashop.socket.Connection;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
 
 //0033A99520000000000000000{0:0428,1:1}
 
@@ -10,6 +16,8 @@ public class EchoController {
 
     private StringBuilder header = new StringBuilder();
     private StringBuilder body = new StringBuilder();
+
+    private final OrderService orderService;
 
     // public void receiveData(Connection connection, byte[] data) {
 
@@ -53,8 +61,20 @@ public class EchoController {
         }
     }
 
+
+    public List<Order> sendData(Connection connection) {
+
+        List<Order> orders =(List<Order>) orderService.findAllOrders();
+        connection.send(orders);
+
+        return orders;
+    }
+
+
     public void connect(Connection connection) {
         System.out.println("New connection " + connection.getAddress().getCanonicalHostName());
+
+//        System.out.println(sendData(connection));
     }
 
     public void disconnect(Connection connection) {

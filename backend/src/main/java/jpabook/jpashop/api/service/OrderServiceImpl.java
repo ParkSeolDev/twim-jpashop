@@ -28,6 +28,7 @@ public class OrderServiceImpl implements OrderService {
      * 주문
      */
     @Transactional
+    @Override
     public Long order(String userId, Long itemId, int count) {
 
         //엔티티 조회
@@ -55,6 +56,7 @@ public class OrderServiceImpl implements OrderService {
      * 주문 취소
      */
     @Transactional
+    @Override
     public void cancelOrder(Long orderId) {
         //주문 엔티티 조회
         Order order = orderRepository.findById(orderId).get();
@@ -64,11 +66,13 @@ public class OrderServiceImpl implements OrderService {
 
     //검색
     @Transactional(readOnly = true)
+    @Override
     public List<Order> findOrders(OrderSearch orderSearch) {
         return orderRepositorySupport.findAllByString(orderSearch);
     }
 
     @Transactional(readOnly = true)
+    @Override
     public List<Order> findAllOrders(){
         return orderRepositorySupport.findAll();
     }

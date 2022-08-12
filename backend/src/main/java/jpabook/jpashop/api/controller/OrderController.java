@@ -2,6 +2,7 @@ package jpabook.jpashop.api.controller;
 
 import io.swagger.annotations.Api;
 import jpabook.jpashop.api.service.JwtService;
+import jpabook.jpashop.api.service.OrderService;
 import jpabook.jpashop.api.service.OrderServiceImpl;
 import jpabook.jpashop.db.entity.Order;
 import jpabook.jpashop.db.repository.OrderSearch;
@@ -24,7 +25,7 @@ public class OrderController {
     private static final String SUCCESS = "success";
     private static final String FAIL = "fail";
 
-    private final OrderServiceImpl orderServiceImpl;
+    private final OrderService orderService;
     private final JwtService jwtService;
 
 
@@ -46,7 +47,7 @@ public class OrderController {
 //        }
 //
 //        return new ResponseEntity<String>(SUCCESS, status);
-        orderServiceImpl.order(userId, itemId, count);
+        orderService.order(userId, itemId, count);
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
@@ -67,19 +68,19 @@ public class OrderController {
 //            }
 //        }
 //        return new ResponseEntity<>(null, status);
-        List<Order> orders = orderServiceImpl.findOrders(orderSearch);
+        List<Order> orders = orderService.findOrders(orderSearch);
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 
     @PostMapping("/{orderId}/cancel")
     public ResponseEntity<String> cancelOrder(@PathVariable("orderId") Long orderId) {
-        orderServiceImpl.cancelOrder(orderId);
+        orderService.cancelOrder(orderId);
         return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
     }
 
     @GetMapping("/all-orders")
     public ResponseEntity<List<Order>> allOrders(){
-        List<Order> orders = orderServiceImpl.findAllOrders();
+        List<Order> orders = orderService.findAllOrders();
         return new ResponseEntity<>(orders, HttpStatus.OK);
     }
 }
