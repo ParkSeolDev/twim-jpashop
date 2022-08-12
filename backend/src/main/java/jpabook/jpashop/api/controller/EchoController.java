@@ -1,8 +1,10 @@
 package jpabook.jpashop.api.controller;
+import jpabook.jpashop.api.service.ItemService;
 import jpabook.jpashop.api.service.OrderService;
 import jpabook.jpashop.api.service.UserService;
 import jpabook.jpashop.db.entity.Order;
 import jpabook.jpashop.db.entity.User;
+import jpabook.jpashop.db.entity.item.Item;
 import jpabook.jpashop.socket.Connection;
 import lombok.RequiredArgsConstructor;
 
@@ -17,7 +19,7 @@ public class EchoController {
     private StringBuilder header = new StringBuilder();
     private StringBuilder body = new StringBuilder();
 
-    private final OrderService orderService;
+    private final ItemService itemService;
 
     // public void receiveData(Connection connection, byte[] data) {
 
@@ -62,12 +64,12 @@ public class EchoController {
     }
 
 
-    public List<Order> sendData(Connection connection) {
+    public List<Item> sendData(Connection connection) {
 
-        List<Order> orders =(List<Order>) orderService.findAllOrders();
-        connection.send(orders);
+        List<Item> items =(List<Item>) itemService.findItems();
+        connection.send(items);
 
-        return orders;
+        return items;
     }
 
 
