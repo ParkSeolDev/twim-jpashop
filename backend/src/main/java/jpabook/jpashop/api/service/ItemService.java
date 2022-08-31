@@ -32,7 +32,7 @@ public class ItemService {
     }
 
     public Item findOne(Long itemId) {
-        return itemRepository.findById(itemId).get();
+        return itemRepository.findById(itemId).orElseThrow(() -> new ItemNotFoundException(itemId));
     }
 
 }

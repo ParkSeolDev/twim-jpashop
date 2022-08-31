@@ -76,7 +76,7 @@ public class EchoController {
     public void connect(Connection connection) {
         System.out.println("New connection " + connection.getAddress().getCanonicalHostName());
 
-//        System.out.println(sendData(connection));
+        System.out.println(sendData(connection));
     }
 
     public void disconnect(Connection connection) {
